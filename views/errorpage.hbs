@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>404 Error Page | CodingNepal</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            outline: none;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+
+            background-size: 400%;
+        }
+
+        #error-page {
+            position: absolute;
+            top: 10%;
+            left: 15%;
+            right: 15%;
+            bottom: 10%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+
+        #error-page .content {
+            max-width: 600px;
+            text-align: center;
+
+        }
+
+        .content h2.header {
+            font-size: 18vw;
+            line-height: 1em;
+            position: relative;
+        }
+
+        .content h2.header:after {
+            position: absolute;
+            content: attr(data-text);
+            top: 0;
+            left: 0;
+            right: 0;
+
+            background-size: 400%;
+
+
+
+            color: rgb(0, 47, 43);
+        }
+
+
+
+        .content h4 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            color: #000;
+            font-size: 2em;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .content h4:after {
+            position: absolute;
+
+            top: 0;
+            left: 0;
+            right: 0;
+            color: #102a26;
+        }
+
+        .content p {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #002923;
+        }
+
+        .content .btns {
+            margin: 25px 0;
+            display: inline-flex;
+        }
+
+        .content .btns a {
+            display: inline-block;
+            margin: 0 10px;
+            text-decoration: none;
+            border: 2px solid #102927;
+            color: #102a26;
+            font-weight: 500;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .content .btns a:hover {
+            background: #12312c;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="error-page">
+        <div class="content">
+            <h2 class="header" data-text="404">
+                404
+            </h2>
+            <h4 data-text="Opps! Page not found">
+                Opps! Page not found
+            </h4>
+            <p>
+                Sorry, the page you're looking for doesn't exist.
+            </p>
+            <div class="btns">
+                <a href="/">return home</a>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

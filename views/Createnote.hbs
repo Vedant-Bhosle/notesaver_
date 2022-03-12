@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NoteSaver</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Philosopher&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+
+        .titleinput:focus {
+            outline: none;
+            border: 2px solid #29465B;
+
+        }
+
+        textarea {
+            width: 600px;
+        }
+
+        textarea:focus {
+            outline: #29465B;
+            border: 2px solid #29465B;
+        }
+
+        .section1 {
+
+
+            margin: 8rem 5rem;
+
+        }
+
+        .btn {
+            background: #29465B;
+            background: #0c373b;
+
+            color: white;
+            border-radius: 4px;
+        }
+
+
+        .navbar {
+            background: #fbfbfb;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+            color: #29465B;
+        }
+
+        .navbar-brand {
+            color: #29465B;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 28px;
+            font-family: 'Philosopher', sans-serif;
+
+        }
+
+
+        .navitem {
+            color: #29465B;
+            text-decoration: none;
+            font-family: 'Questrial', sans-serif;
+            font-size: 19px;
+            font-weight: bold;
+            margin: auto 20px;
+        }
+
+        .navitem:hover {
+            color: #0d161d;
+
+        }
+
+        .navbar-nav {
+            margin: 0px auto;
+            margin-left: 220px;
+        }
+
+        .img {
+            margin-top: 70px;
+            border-radius: 90px;
+        }
+
+        .info {
+            margin-top: 100px;
+            margin-left: 20px;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-around;
+
+
+        }
+
+        @media only screen and (max-width: 600px) {
+            .footer {
+                display: block;
+            }
+        }
+
+        @media (max-width:380px) {
+            .navitem {
+                margin-top: 1rem;
+                margin-left: -5.5rem;
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+    {{!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand">NoteSaver</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">Sign up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/secret">Private page</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Log out</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/mynotes">My Notes</a>
+                    </li>
+
+
+                </ul>
+
+            </div>
+        </div>
+    </nav> --}}
+    <nav class="navbar navbar-expand-lg sticky-md-top navbar-light d-flex justify-content-between">
+        <div class="container-fluid ">
+            <a class="navbar-brand">NoteSaver</a>
+            <button class="navbar-toggler " type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0  d-flex ">
+                    <li class="nav-item">
+                        <a class="navitem" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="navitem" href="/mynotes">My Notes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="navitem" href="/About">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="navitem" href="/login">Sign In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="navitem" href="/register">Sign Up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="navitem" href="/logout">Log Out</a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="section1">
+        {{!-- <div class=" rounded p-2 fw-bold text-success fs-5">
+            {{message}}
+        </div> --}}
+        {{#each alerts}}
+        <div class="alert alert-success alert-dismissible fade show" style=" display: {{display}};" role="alert">
+            <strong>{{this.message}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {{/each}}
+
+        <div class="container">
+
+
+            <form action="/createnote" method="post">
+                <input type="hidden" name="_id" value={{current_user.id}}>
+                <br><br>
+                <input class="titleinput py-2" type="text" name="title" autocomplete="off"
+                    value="{{current_user.title}}" placeholder="  Title :" required><br><br>
+
+                <div class="form-floating">
+                    <textarea name="description" placeholder="  Write a Note here :" id="floatingTextarea2"
+                        style="height: 100px">{{current_user.description}}</textarea>
+
+                </div>
+                <input type="submit" class="btn my-3 py-2 px-5 " value="Submit">
+
+
+            </form>
+
+
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
