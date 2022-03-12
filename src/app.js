@@ -121,12 +121,7 @@ app.post("/register", [
         try {
             const password = req.body.password;
             const cpassword = req.body.confirmpassword;
-            const email=req.body.email;
-            const phone=req.body.phone;
-          const alredyexixt=await User.find({email: email,phone:phone});
-          if(alredyexixt){
-            res.render("catcherror", { errormsg: "USER WITH THIS CREDENTIAL(EMAIL OR PHONE) IS ALREADY EXIST PLEASE TRY UNIQUE" })
-          }
+           
 
 
             if (password === cpassword) {
